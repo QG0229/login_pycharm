@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第六小组网站</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+    <nav class="my-navbar">
+        <div class="logo">
+            <a href="{{ url_for('main.home') }}" class="logo-link">第六小组</a>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('main.home') }}">首页</a>
+            <a href="#">个人简介</a>
+            <a href="#">信息下载</a>
+        </div>
+        <div class="user-menu">
+            {% if current_user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">我的</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="{{ url_for('main.change_password') }}">修改密码</a>
+                        <a href="{{ url_for('main.logout') }}">退出登录</a>
+                    </div>
+                </div>
+
+            {% else %}
+                <a href="{{ url_for('main.login') }}">登录</a>
+            {% endif %}
+        </div>
+    </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="qr-code">
+                <img src="{{ url_for('static', filename='picture1.png') }}" alt="二维码" width="100">
+            </div>
+            <div class="site-info">
+                <p>这是第六小组的官网，展示我们的信息与成果。</p>
+                <ul class="footer-links">
+                    <li><a href="#">家长监护</a></li>
+                    <li><a href="#">网络报警</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">出版许可</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">© 第六小组 所有</p>
+    </footer>
+
+    <!-- Bootstrap Modal 用于 flash 消息弹窗 -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- 下面这个是提示框颜色-->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertModalLabel">提示</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+                </div>
+                <div class="modal-body" id="alertMessage">
+                    <!-- flash 消息将被插入这里 -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 处理 flash 消息显示 Modal 弹窗 -->
+    <script>
+        window.onload = function() {
+            var messages = {{ get_flashed_messages()|tojson }};
+            if (messages.length > 0) {
+                document.getElementById('alertMessage').innerText = messages[0];
+                var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+                alertModal.show();
+            }
+        };
+
+        function toggleDropdown() {
+            var dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle("show");
+        }
+
+    </script>
+</body>
+</html>

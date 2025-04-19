@@ -1,0 +1,271 @@
+/* 整体页面样式 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 导航栏样式 */
+/* 原来是 .navbar */
+.my-navbar {
+    background-color: #cce6ff; /* 浅蓝色 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+
+/* Logo样式 */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #003366;     /* #003366; */
+    margin-right: 50px;
+}
+
+/* 给logo添加链接样式 */
+.logo-link {
+    font-size: 30px;  /* 字体稍微大一点 */
+    font-weight: bold;
+    color: #0056b3;     /* #007BFF; */
+    text-decoration: none;  /* 去掉下划线 */
+}
+
+.logo-link:hover {
+    color: #003366;  /* 鼠标悬停时改变颜色 */
+}
+
+/* 导航链接样式 */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    margin-right: auto; /* 把链接往左推 */
+    margin-left: 60px;   /* 与Logo保持空隙 */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #003366;
+    font-size: 18px;
+}
+
+/* 用户操作按钮 */
+.user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.dropbtn {
+    background-color: #cce6ff;
+    color: #003366;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 保持默认隐藏 */
+.dropdown-content {
+    display: none;  /* 默认隐藏 */
+    position: absolute;
+    background-color: #f0f0f0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    right: 40px;
+    z-index: 1;
+    width: 180px;
+    flex-direction: column;  /* 垂直排列 */
+}
+
+/* 下拉菜单内链接样式 */
+.dropdown-content a {
+    color: #003366;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 按钮点击后显示下拉框 */
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* 闪现消息样式 */
+.flash-messages {
+    list-style-type: none;
+    padding: 10px 40px;
+    color: red;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #cce6ff;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-info p {
+    font-size: 16px;
+    color: #333;
+}
+
+.qr-code img {
+    margin-top: 25px;
+    border: 1px solid #ccc;
+}
+
+/* 版权说明样式 */
+footer .copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 30px;
+    padding-top: 10px;
+}
+
+.site-info {
+    flex: 1;
+}
+
+.site-info p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.footer-links {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.footer-links li {
+    margin: 4px 0;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #003366;
+    font-size: 14px;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+}
+
+/*补充 登录 页面 样式*/
+.login-container {
+    max-width: 400px;
+    margin: 100px auto; /* 居中+往下拉 */
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form label {
+    display: block;
+    margin: 15px 0 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+/* 美化错误提示 和 按钮*/
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 4px;
+}
+
+.login-button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* 下面是提示框部分 */
+/* 修改按钮样式 */
+.login-form button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    background-color: #007BFF;  /* 蓝色按钮 */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;  /* 悬停时颜色 */
+}
+
+/* 弹出框样式 */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #007BFF;
+    color: white;
+}
+
+.modal-footer .btn-primary {
+    background-color: #007BFF;
+    border: none;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #0056b3;
+}
