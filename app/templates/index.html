@@ -1,5 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2 style="text-align:center;">欢迎来到第六小组首页！</h2>
-    <p style="text-align:center;">这里可以展示一些小组简介或展示内容。</p>
+
+{% if current_user.is_authenticated %}
+  <!-- 登录后的内容 -->
+  <h2 style="text-align:center;">欢迎来到第六小组首页！</h2>
+  <p style="text-align:center;">没错！૮・ﻌ・ა  这就是展示的内容！</p>
+
+  <!-- 登录后显示轮播图 -->
+  <div id="carouselExample" class="carousel slide mx-auto mt-4" data-bs-interval="2000" data-bs-ride="carousel" data-bs-pause="hover" style="width: 700px;height:600px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ url_for('static', filename='img/lt1.jpg') }}" class="d-block w-100" alt="图1">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/lt2.jpg') }}" class="d-block w-100" alt="图2">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/lt3.jpg') }}" class="d-block w-100" alt="图3">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/lt4.jpg') }}" class="d-block w-100" alt="图4">
+      </div>
+    </div>
+    <!-- 控制按钮 -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+{% else %}
+  <!-- 未登录内容 -->
+  <h2 style="text-align:center;">欢迎来到第六小组首页！</h2>
+  <p style="text-align:center; color: gray;">登录后才可显示详情哦~</p>
+{% endif %}
+
 {% endblock %}
