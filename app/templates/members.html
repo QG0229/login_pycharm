@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container mt-5 extra-space-bottom">
+    <h2 class="text-center">第六小组成员信息</h2>
+
+    {% if current_user.is_authenticated %}
+      <!-- 登录状态下显示表格 -->
+      <table class="table table-striped table-bordered mt-4">
+        <thead class="custom-blue text-center">
+          <tr>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>班级</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <td>孙广旭</td>
+            <td>202222450221</td>
+            <td>22级软件工程一班</td>
+          </tr>
+          <tr>
+            <td>孙晴</td>
+            <td>202222450212</td>
+            <td>22级软件工程一班</td>
+          </tr>
+          <tr>
+            <td>王梓豪</td>
+            <td>202222450247</td>
+            <td>22级软件工程一班</td>
+          </tr>
+          <tr>
+            <td>李鑫宇</td>
+            <td>202222450204</td>
+            <td>22级软件工程一班</td>
+          </tr>
+        </tbody>
+      </table>
+    {% else %}
+      <!-- 未登录状态显示提示信息 -->
+      <div class="alert alert-info text-center mt-4" role="alert">
+        🤫 神秘的小组成员信息，你想看嘛~ 请先登录解锁哦~
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}

@@ -269,3 +269,48 @@ footer .copyright {
 .modal-footer .btn-primary:hover {
     background-color: #0056b3;
 }
+
+/* 小组成员表头颜色设置 */
+thead.custom-blue {
+  background-color: #0056b3;        /* 比较浅的 #cce6ff; */        /* 比较深的蓝色 #007BFF; */ /* Bootstrap 蓝 */
+  color: white;
+}
+
+/* 小组成员表格底部距离 */
+.extra-space-bottom {
+  margin-bottom: 90px; /* 任意调节哦 */
+}
+
+/* 错误提示信息效果 */
+/* 错误提示容器样式 */
+#flash-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 10px 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    font-size: 16px;
+    display: none; /* 初始状态不显示 */
+}
+
+/* 提示信息显示动画 */
+#flash-message.show {
+    display: block;
+    animation: fade-out 2.5s forwards; /* 自动消失动画 */
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+

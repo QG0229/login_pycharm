@@ -1,4 +1,3 @@
-# app/routes.py
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, current_user, login_required
 from .forms import LoginForm, ChangePasswordForm
@@ -21,11 +20,9 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
-            print("✅ 登录成功！")
             login_user(user)
             return redirect(url_for('main.home'))
         else:
-            print("❌ 登录失败！")
             flash('邮箱或密码错误')
     return render_template('login.html', form=form)
 
@@ -53,3 +50,8 @@ def change_password():
         else:
             flash('原密码错误')
     return render_template('change_password.html', form=form)
+
+# 小组成员
+@main.route('/members')
+def members():
+    return render_template('members.html')

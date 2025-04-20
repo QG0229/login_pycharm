@@ -16,6 +16,7 @@
         </div>
         <div class="nav-links">
             <a href="{{ url_for('main.home') }}">首页</a>
+            <a class="nav-link" href="{{ url_for('main.members') }}">小组成员</a>
             <a href="#">个人简介</a>
             <a href="#">信息下载</a>
         </div>
@@ -89,7 +90,18 @@
                 var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
                 alertModal.show();
             }
-        };
+
+            <!-- 错误提示信息 -->
+            var flashMessage = document.getElementById('flash-message');
+                if (flashMessage) {
+                    flashMessage.classList.add('show'); // 显示提示消息
+
+                    // 2.5秒后自动消失
+                    setTimeout(function() {
+                        flashMessage.classList.remove('show');
+                    }, 2500);
+                }
+                };
 
         function toggleDropdown() {
             var dropdown = document.querySelector('.dropdown');
