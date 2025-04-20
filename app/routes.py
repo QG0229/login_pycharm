@@ -20,7 +20,10 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
-            login_user(user)
+            # ✅ 如果这次没勾选“记住我”，主动清除之前的持久登录状态
+            if not form.remember.data:
+                logout_user()
+            login_user(user, remember=form.remember.data)
             return redirect(url_for('main.home'))
         else:
             flash('邮箱或密码错误')

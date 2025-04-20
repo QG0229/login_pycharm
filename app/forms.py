@@ -1,12 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 import re  # 导入re模块，用于正则表达式
 from flask_login import current_user  # 导入 current_user
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+
 
 class LoginForm(FlaskForm):
     email = StringField('邮箱', validators=[DataRequired(), Email()])
     password = PasswordField('密码', validators=[DataRequired()])
+    remember = BooleanField('记住我')  # ✅ 新增
     submit = SubmitField('登录')
 
 class ChangePasswordForm(FlaskForm):

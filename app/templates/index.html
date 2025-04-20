@@ -7,7 +7,7 @@
   <p style="text-align:center;">没错！૮・ﻌ・ა  这就是展示的内容！</p>
 
   <!-- 登录后显示轮播图 -->
-  <div id="carouselExample" class="carousel slide mx-auto mt-4" data-bs-interval="2000" data-bs-ride="carousel" data-bs-pause="hover" style="width: 700px;height:600px;">
+  <div id="carouselExample" class="carousel slide mx-auto mt-4 spacing-bottom" data-bs-interval="2000" data-bs-ride="carousel" data-bs-pause="hover" style="width: 700px;height:600px;">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="{{ url_for('static', filename='img/lt1.jpg') }}" class="d-block w-100" alt="图1">
@@ -32,9 +32,12 @@
   </div>
 
 {% else %}
-  <!-- 未登录内容 -->
-  <h2 style="text-align:center;">欢迎来到第六小组首页！</h2>
-  <p style="text-align:center; color: gray;">登录后才可显示详情哦~</p>
+   <!-- 未登录内容 -->
+    <div class="login-hint">
+      <h2 class="login-title">欢迎来到第六小组首页！</h2>
+      <p class="login-subtitle">登录后才可显示详情哦~</p>
+    </div>
+
 {% endif %}
 
 {% endblock %}

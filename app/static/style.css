@@ -4,6 +4,23 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* 布局整体结构：让 footer 吸底 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* main 自动撑开空间，footer 会被推到底部 */
+}
+
+
 /* 导航栏样式 */
 /* 原来是 .navbar */
 .my-navbar {
@@ -314,3 +331,70 @@ thead.custom-blue {
     }
 }
 
+/* 轮播图底部 */
+.spacing-bottom {
+  margin-bottom: 50px;
+}
+
+.carousel-custom {
+  width: 700px;
+  height: 600px;
+  margin: 1.5rem auto 50px auto; /* 相当于 mt-4 + 居中 + 下间距 */
+}
+
+/* 记住我 复选框 */
+/* 复选框容器排版 */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0; /* 如果想统一 margin 也可以写这里 */
+}
+
+/* 复选框本身
+.form-check-input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}*/
+/* 强制修改 Bootstrap 的复选框大小 */
+.form-check-input {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+}
+
+/* 未登录时首页内容下移 */
+.login-hint {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 32px;
+  color: black;
+}
+
+.login-subtitle {
+  font-size: 16px;
+  color: gray;
+}
+
+/* index首页补充样式 */
+.carousel-item{
+    width:600px;
+    height:600px;
+    overflow: hidden;  /* 防止图片溢出 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel{
+    margin-bottom:20px;
+}
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
